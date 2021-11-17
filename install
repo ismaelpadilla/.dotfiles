@@ -1,7 +1,8 @@
-#!/usr/bin/env zsh
+##!/usr/bin/sh
+##!/usr/bin/env zsh
 
 DOTFILES=$HOME/.dotfiles
-STOW_FOLDERS="nvim"
+STOW_FOLDERS="nvim,tmux"
 echo $DOTFILES
 
 # I am using zsh instead of bash.  I was having some troubles using bash with
