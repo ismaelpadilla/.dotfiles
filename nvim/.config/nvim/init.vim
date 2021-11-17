@@ -1,5 +1,8 @@
 set nocompatible
 
+"block cursor
+set guicursor=
+
 set background=dark
 
 " colors on tmux
