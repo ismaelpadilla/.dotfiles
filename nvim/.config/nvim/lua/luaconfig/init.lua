@@ -1,0 +1,1 @@
+require("luaconfig.telescope")

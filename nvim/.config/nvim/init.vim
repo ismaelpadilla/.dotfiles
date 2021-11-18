@@ -73,6 +73,11 @@ Plug 'tpope/vim-surround'
 " emmet
 Plug 'mattn/emmet-vim'
 
+" telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -147,3 +152,11 @@ inoremap ; ;<c-g>u
 " jumplist mutation (if jumping more than 5 lines up or down, modify jumplist)
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" telescope
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+lua require("luaconfig")
