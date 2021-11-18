@@ -186,3 +186,6 @@ nnoremap <leader>Y gg"+yG
 lua require("luaconfig")
 
 "let & path. = ",".system("git rev-parse --show-toplevel | tr -d '\\n'")
+
+nnoremap <leader>ex :Lex %:p:h<cr>
+nnoremap <leader>pv :Sex!<cr>
