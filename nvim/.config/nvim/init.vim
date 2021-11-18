@@ -83,6 +83,9 @@ Plug 'mhinz/vim-rfc'
 
 Plug 'airblade/vim-rooter'
 
+Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'tpope/vim-fugitive'
 
