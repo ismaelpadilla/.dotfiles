@@ -78,6 +78,17 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
+" rfc plugin (:RFC [vim regexp])
+Plug 'mhinz/vim-rfc'
+
+Plug 'airblade/vim-rooter'
+
+Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -159,4 +170,25 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
+" delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" replace currently selected text with default register
+" without yanking it
+xnoremap <leader>p "_dP
+
+" copy from clipboard
+nnoremap <leader>pp "+p
+
+" yank to clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y gg"+yG
+
 lua require("luaconfig")
+
+"let & path. = ",".system("git rev-parse --show-toplevel | tr -d '\\n'")
+
+nnoremap <leader>ex :Lex %:p:h<cr>
+nnoremap <leader>pv :Sex!<cr>
