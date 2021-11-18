@@ -78,6 +78,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
+" rfc plugin (:RFC [vim regexp])
+Plug 'mhinz/vim-rfc'
+
 call plug#end()
 
 colorscheme gruvbox
