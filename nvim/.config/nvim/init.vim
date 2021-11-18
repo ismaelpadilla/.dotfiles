@@ -83,6 +83,9 @@ Plug 'mhinz/vim-rfc'
 
 Plug 'airblade/vim-rooter'
 
+
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 colorscheme gruvbox
