@@ -81,6 +81,8 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 " rfc plugin (:RFC [vim regexp])
 Plug 'mhinz/vim-rfc'
 
+Plug 'airblade/vim-rooter'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -180,3 +182,4 @@ nnoremap <leader>Y gg"+yG
 
 lua require("luaconfig")
 
+"let & path. = ",".system("git rev-parse --show-toplevel | tr -d '\\n'")
