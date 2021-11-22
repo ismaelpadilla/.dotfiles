@@ -1,6 +1,7 @@
 require('telescope').setup {
     defaults = {
-        --prompt_prefix = ' >'
+        initial_mode = normal,
+        file_ignore_patterns = { "dist", "node%_modules", "target" }
     },
     extensions = {
         fzy_native = {
