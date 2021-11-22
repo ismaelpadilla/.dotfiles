@@ -77,6 +77,7 @@ Plug 'mattn/emmet-vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'fannheyward/telescope-coc.nvim'
 
 " rfc plugin (:RFC [vim regexp])
 Plug 'mhinz/vim-rfc'
