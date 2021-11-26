@@ -87,6 +87,7 @@ Plug 'airblade/vim-rooter'
 Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 Plug 'tpope/vim-fugitive'
 
@@ -193,3 +194,6 @@ lua require("luaconfig")
 
 nnoremap <leader>ex :Lex %:p:h<cr>
 nnoremap <leader>pv :Sex!<cr>
+
+" treesitter highlight
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
