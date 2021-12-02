@@ -205,3 +205,6 @@ lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 " nvim cmp
 set completeopt=menu,menuone,noselect
 
+" quicklist navigation
+nnoremap <C-k> :cnext<CR>zz
+nnoremap <C-j> :cprev<CR>zz
