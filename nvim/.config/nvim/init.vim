@@ -49,7 +49,6 @@ nnoremap <leader>html :0r ~/.vim/snippets/html.html<CR>6ggcit
 " Search into subfolders
 set path+=**
 set wildignore+=**/node_modules/**
-set hidden " Hide buffers when switching between files
 
 " netrw
 let g:netrw_liststyle=3 " tree view by default
@@ -161,9 +160,6 @@ set signcolumn=yes
 
 " Highlight the symbol and its references when holding the cursor.
 "autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Y behaves like C or D
-nnoremap Y yg$
 
 " undo break points
 inoremap . .<c-g>u
