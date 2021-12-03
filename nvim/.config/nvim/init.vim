@@ -208,3 +208,6 @@ set completeopt=menu,menuone,noselect
 " quicklist navigation
 nnoremap <C-k> :cnext<CR>zz
 nnoremap <C-j> :cprev<CR>zz
+
+" split windows to theright
+set splitright
