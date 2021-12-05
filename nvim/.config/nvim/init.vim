@@ -98,9 +98,17 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 " Plug 'rafamadriz/friendly-snippets' --TODO look into this
 
+Plug 'tjdevries/colorbuddy.vim'
+Plug 'Th3Whit3Wolf/onebuddy'
+
+"Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
-colorscheme gruvbox
+"colorscheme gruvbox
+lua require('colorbuddy').colorscheme('onebuddy')
 
 " coc config
 "nmap <silent> gd <Plug>(coc-definition)
@@ -211,3 +219,7 @@ nnoremap <C-j> :cprev<CR>zz
 
 " split windows to theright
 set splitright
+
+lua << END
+require'lualine'.setup({options = {theme = 'ayu_mirage'}})
+END
