@@ -105,6 +105,10 @@ Plug 'Th3Whit3Wolf/onebuddy'
 Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
 Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'simrat39/rust-tools.nvim'
+Plug 'nvim-lua/popup.nvim'
+
 call plug#end()
 
 "colorscheme gruvbox
