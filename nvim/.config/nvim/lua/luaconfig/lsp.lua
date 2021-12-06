@@ -97,7 +97,7 @@ local on_attach = function(client, bufnr)
 
 end
 
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'html' }
+local servers = { 'pyright', 'tsserver', 'html' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
@@ -107,6 +107,18 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities
     }
 end
+
+-- rust tools, the options inside 'server' are the lsp options
+require("rust-tools").setup({
+    server = {
+        on_attach = on_attach,
+        flags = {
+            debounce_text_changes = 150,
+        },
+        capabilities = capabilities
+    }
+})
+
 
 --require'lspconfig'.sumneko_lua.setup{}
 -- lua lsp, see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
