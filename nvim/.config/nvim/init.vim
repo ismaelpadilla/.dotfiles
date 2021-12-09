@@ -109,6 +109,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'nvim-lua/popup.nvim'
 
+Plug 'numToStr/Comment.nvim'
 call plug#end()
 
 "colorscheme gruvbox
