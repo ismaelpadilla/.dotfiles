@@ -171,7 +171,12 @@ require('lspconfig').sumneko_lua.setup({
 })
 
 require("lspconfig").gopls.setup({
+    on_attach = on_attach,
 	cmd = { "gopls", "serve" },
+    flags = {
+        debounce_text_changes = 150,
+    },
+    capabilities = capabilities,
 	settings = {
 		gopls = {
 			analyses = {
