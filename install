@@ -2,7 +2,7 @@
 ##!/usr/bin/env zsh
 
 DOTFILES=$HOME/.dotfiles
-STOW_FOLDERS="nvim,tmux"
+STOW_FOLDERS="nvim,tmux,rofi"
 echo $DOTFILES
 
 # I am using zsh instead of bash.  I was having some troubles using bash with
