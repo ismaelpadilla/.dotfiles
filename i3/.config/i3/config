@@ -384,6 +384,11 @@ focus_follows_mouse no
 # dont center mouse on another workspace when switching to it
 mouse_warping none
 
+bindsym $mod+Shift+greater move container to output right
+bindsym $mod+Shift+less move container to output left
+
+bindsym $mod+Control+greater focus output right
+bindsym $mod+Control+less focus output left
 
 # pink border for focused window
 client.focused #4c7899 #285577 #ffffff #2e9ef4 #ffc2c2
