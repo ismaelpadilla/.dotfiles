@@ -377,3 +377,10 @@ mode "$mode_gaps_left" {
         bindsym Return mode "$mode_gaps"
         bindsym Escape mode "default"
 }
+
+# dont focus window on hover
+focus_follows_mouse no
+
+# dont center mouse on another workspace when switching to it
+mouse_warping none
+
