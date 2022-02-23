@@ -240,7 +240,7 @@ bindsym $mod+Shift+p move workspace to output right
 gaps inner 10
 gaps outer 0
 smart_gaps on
-# for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 1
 
 
 exec_always --no-startup-id picom -background
@@ -384,3 +384,6 @@ focus_follows_mouse no
 # dont center mouse on another workspace when switching to it
 mouse_warping none
 
+
+# pink border for focused window
+client.focused #4c7899 #285577 #ffffff #2e9ef4 #ffc2c2
