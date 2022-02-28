@@ -241,9 +241,8 @@ gaps outer 0
 smart_gaps on
 for_window [class=".*"] border pixel 1
 
-
-exec_always --no-startup-id picom -background
-exec nitrogen --no-startup-id --restore
+exec_always --no-startup-id picom -b
+exec --no-startup-id nitrogen --restore
 
 bindsym $mod+Shift+s sticky toggle
 
