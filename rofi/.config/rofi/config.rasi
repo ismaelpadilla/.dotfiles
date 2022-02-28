@@ -1,6 +1,6 @@
 @theme "Arc-Dark"
 configuration {
-modi: "run,window";
+modi: "drun,run";
 /* modi: "window,run,ssh"; */
 /*	width: 50;*/
 /*	lines: 15;*/
