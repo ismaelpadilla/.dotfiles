@@ -219,8 +219,12 @@ lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 set completeopt=menu,menuone,noselect
 
 " quicklist navigation
-nnoremap <C-k> :cnext<CR>zz
-nnoremap <C-j> :cprev<CR>zz
+nnoremap <C-k> :cprev<CR>zz
+nnoremap <C-j> :cnext<CR>zz
+
+" quicklist navigation
+nnoremap <leader><C-k> :lprev<CR>zz
+nnoremap <leader><C-j> :lnext<CR>zz
 
 " split windows to theright
 set splitright
