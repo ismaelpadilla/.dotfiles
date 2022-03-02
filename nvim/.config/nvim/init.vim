@@ -110,6 +110,8 @@ Plug 'simrat39/rust-tools.nvim'
 Plug 'nvim-lua/popup.nvim'
 
 Plug 'numToStr/Comment.nvim'
+
+Plug 'weilbith/nvim-code-action-menu'
 call plug#end()
 
 "colorscheme gruvbox
