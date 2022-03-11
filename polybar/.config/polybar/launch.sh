@@ -4,7 +4,7 @@ sleep 1
 # Primary bar
 polybar primary 2>&1 | tee -a /tmp/polybar1.log & disown
 
-# Primary bar
+# Secondary bar
 MONITOR_PRIMARY=$(polybar -m|head -1|sed -e 's/:.*$//g')
 export MONITOR_SECONDARY=$(polybar -m|tail -1|sed -e 's/:.*$//g')
 
