@@ -257,7 +257,8 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface = ${env:WLAN}
+; interface = wlan0
 interval = 3.0
 
 ; click-left = 
@@ -284,7 +285,8 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp0s3
+interface = ${env:ETH}
+; interface = enp0s3
 interval = 3.0
 
 format-connected-underline = #55aa55

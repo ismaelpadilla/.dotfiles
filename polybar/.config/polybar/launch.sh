@@ -1,6 +1,9 @@
 killall polybar
 sleep 1
 
+# Network interfaces
+export ETH=$(find /sys/class/net -type l -not -lname '*virtual*' -printf '%f\n' | grep ^e)
+export WLAN=$(find /sys/class/net -type l -not -lname '*virtual*' -printf '%f\n' | grep ^w)
 # Primary bar
 polybar primary 2>&1 | tee -a /tmp/polybar1.log & disown
 
