@@ -43,6 +43,9 @@ set hlsearch "highlight matches
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
+" disable ex mode
+:nnoremap Q <Nop>
+
 set foldmethod=indent
 set foldlevelstart=99 "unfold on startup
 
