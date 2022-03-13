@@ -263,8 +263,8 @@ interval = 3.0
 
 ; click-left = 
 
-format-connected = %{A1:"networkmanager-dmenu":}<ramp-signal> <label-connected>%{A}
-label-connected = %{A1:"networkmanager-dmenu":}%essid%%{A}
+format-connected = %{A1:"networkmanager_dmenu":}<ramp-signal> <label-connected>%{A}
+label-connected = %{A1:"networkmanager_dmenu":}%essid%%{A}
 
 ; format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
@@ -273,7 +273,7 @@ format-connected-underline = #9f78e1
 ; format-disconnected =
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %{A1:"networkmanager-dmenu":}%ifname% disconnected%{A}
+label-disconnected = %{A1:"networkmanager_dmenu":}%ifname% disconnected%{A}
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 = 
@@ -298,7 +298,7 @@ label-connected = %{A1:networkmanager_dmenu:}%local_ip%%{A}
 ; format-disconnected =
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %ifname% disconnected
+label-disconnected = %{A1:networkmanager_dmenu:}%ifname% disconnected%{A}
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
