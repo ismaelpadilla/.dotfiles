@@ -11,6 +11,11 @@
 ;
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/polybar/polybar
+;   [module/system-bluetooth-bluetoothctl]
+;   type = custom/script
+;   exec = ~/polybar-scripts/system-bluetooth-bluetoothctl.sh
+;   tail = true
+;   click-left = ~/polybar-scripts/system-bluetooth-bluetoothctl.sh --toggle &
 ;
 ;   The README contains a lot of information
 ;
@@ -58,7 +63,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 ; modules-center = mpd
-modules-right = pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = pulseaudio xkeyboard memory cpu wlan eth battery bluetooth system-bluetooth-bluetoothctl temperature date powermenu
 ; modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
@@ -466,3 +471,19 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
+[module/system-bluetooth-bluetoothctl]
+type = custom/script
+exec = ~/.config/polybar/bluetooth.sh
+tail = true
+click-left = ~/.config/polybar/bluetooth.sh --toggle &
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/bluetooth2.sh
+interval = 2
+click-left = exec blueberry
+click-right = exec ~/.config/polybar/toggle-bluetooth.sh
+format-padding = 1
+format-background = #000000
+format-foreground = #ffffff
