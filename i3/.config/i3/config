@@ -70,6 +70,8 @@ bindcode $mod+23 exec "rofi -show-icons -matching fuzzy -m -4 -modi window -show
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
+bindsym $mod+Control+Return exec "thunar"
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
