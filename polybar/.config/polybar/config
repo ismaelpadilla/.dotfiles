@@ -63,7 +63,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 ; modules-center = mpd
-modules-right = pulseaudio xkeyboard memory cpu wlan eth battery bluetooth system-bluetooth-bluetoothctl temperature date powermenu
+modules-right = pulseaudio xkeyboard memory cpu wlan eth battery bluetooth  temperature date powermenu
 ; modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
