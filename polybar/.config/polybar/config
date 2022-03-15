@@ -310,8 +310,8 @@ label-disconnected = %{A1:networkmanager_dmenu:}%ifname% disconnected%{A}
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date = " %Y-%m-%d"
+date-alt =
 
 time = %H:%M
 time-alt = %H:%M:%S
