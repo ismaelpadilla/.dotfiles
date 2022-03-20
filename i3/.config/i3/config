@@ -1,4 +1,5 @@
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id dunst #-config ~/.config/dunst/dunstrc
 
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 # so pamac asks for authentication
 
