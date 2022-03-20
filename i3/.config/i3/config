@@ -57,6 +57,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Return exec i3-sensible-terminal --class floating-term
 for_window [instance="floating-term"] floating enable
 
+# screenshot
+bindsym $mod+Print exec "spectacle -rb"
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
