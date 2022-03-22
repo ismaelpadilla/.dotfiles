@@ -290,5 +290,3 @@ let g:nvim_tree_icons = {
     \   }
     \ }
 nnoremap <C-n> :NvimTreeToggle<CR>
-highlight NvimTreeFolderIcon guibg=blue
-
