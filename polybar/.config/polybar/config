@@ -487,3 +487,4 @@ click-right = exec ~/.config/polybar/toggle-bluetooth.sh
 format-padding = 1
 format-background = #000000
 format-foreground = #ffffff
+format-underline = #0a6cf5
