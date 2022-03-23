@@ -1,7 +1,11 @@
 require('telescope').setup {
     defaults = {
-        initial_mode = normal,
-        file_ignore_patterns = { "dist", "node%_modules", "target" }
+        file_ignore_patterns = { "dist", "node%_modules", "target" },
+    },
+    pickers = {
+        find_files = {
+            hidden = true
+        },
     },
     extensions = {
         fzy_native = {
@@ -11,5 +15,3 @@ require('telescope').setup {
     }
 }
 require('telescope').load_extension('fzy_native')
---require('telescope').load_extension('coc')
-
