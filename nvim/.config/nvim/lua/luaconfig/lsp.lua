@@ -54,7 +54,7 @@ cmp.setup({
         ghost_text = false
     },
     view = {
-        entries = "native"
+        -- entries = "native"
     }
 })
 
@@ -216,3 +216,14 @@ require'lspconfig'.angularls.setup{
         },
         capabilities = capabilities
 }
+
+-- nvim-cmp highlight groups
+local Group = require("colorbuddy.group").Group
+local g = require("colorbuddy.group").groups
+local c = require("colorbuddy.color").colors
+-- local s = require("colorbuddy.style").styles
+
+Group.new("CmpItemAbbrDeprecated", g.Error)
+Group.new("CmpItemKind", c.red)
+-- Group.new("CmpItemKind", g.Special)
+Group.new("CmpItemMenu", g.NonText)
