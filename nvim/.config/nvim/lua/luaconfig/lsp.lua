@@ -1,7 +1,7 @@
 local lspkind = require('lspkind')
 
 -- Setup nvim-cmp. https://github.com/hrsh7th/nvim-cmp
-local cmp = require'cmp'
+local cmp = require 'cmp'
 
 cmp.setup({
     snippet = {
@@ -31,23 +31,23 @@ cmp.setup({
 
     formatting = {
         format = lspkind.cmp_format({
-          with_text = true,
-          -- mode = 'symbol', -- show only symbol annotations
-          maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            with_text = true,
+            -- mode = 'symbol', -- show only symbol annotations
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
-          -- The function below will be called before any actual modifications from lspkind
-          -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-          -- before = function (entry, vim_item)
-          --   return vim_item
-          -- end
+            -- The function below will be called before any actual modifications from lspkind
+            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+            -- before = function (entry, vim_item)
+            --   return vim_item
+            -- end
 
-          menu = {
-              buffer = "[buf]",
-              nvim_lsp = "[LSP]",
-              nvim_lua = "[api]",
-              path = "[path]",
-              luasnip = "[snip]",
-          }
+            menu = {
+                buffer = "[buf]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[api]",
+                path = "[path]",
+                luasnip = "[snip]",
+            }
         })
     },
     experimental = {
@@ -87,13 +87,14 @@ local nvim_lsp = require('lspconfig')
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     -- Enable completion triggered by <c-x><c-o>
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings.
-    local opts = { noremap=true, silent=true }
+    local opts = { noremap = true, silent = true }
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -167,6 +168,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 require('lspconfig').sumneko_lua.setup({
     on_attach = on_attach,
     cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua", "--preview" };
+    -- capabilities = capabilities,
     settings = {
         Lua = {
             runtime = {
@@ -177,7 +179,7 @@ require('lspconfig').sumneko_lua.setup({
             },
             diagnostics = {
                 -- Get the language server to recognize the `vim` global
-                globals = {'vim'},
+                globals = { 'vim' },
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files
@@ -194,27 +196,27 @@ require('lspconfig').sumneko_lua.setup({
 
 require("lspconfig").gopls.setup({
     on_attach = on_attach,
-	cmd = { "gopls", "serve" },
+    cmd = { "gopls", "serve" },
     flags = {
         debounce_text_changes = 150,
     },
     capabilities = capabilities,
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-		},
-	},
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
 })
 
-require'lspconfig'.angularls.setup{
-        on_attach = on_attach,
-        flags = {
-            debounce_text_changes = 150,
-        },
-        capabilities = capabilities
+require 'lspconfig'.angularls.setup {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    capabilities = capabilities
 }
 
 -- nvim-cmp highlight groups
