@@ -123,6 +123,9 @@ Plug 'weilbith/nvim-code-action-menu'
 Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'lewis6991/gitsigns.nvim'
+
+Plug 'https://github.com/ismaelpadilla/comment-helper.nvim'
+Plug '~/code/comment-helper-lua.nvim/'
 call plug#end()
 
 "colorscheme gruvbox
