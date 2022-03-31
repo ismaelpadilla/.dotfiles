@@ -121,6 +121,8 @@ Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'https://github.com/ismaelpadilla/comment-helper.nvim'
 Plug '~/code/comment-helper-lua.nvim/'
+
+Plug 'ThePrimeagen/harpoon'
 call plug#end()
 
 "colorscheme gruvbox
