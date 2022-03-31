@@ -231,3 +231,9 @@ let g:nvim_tree_icons = {
     \   }
     \ }
 nnoremap <C-n> :NvimTreeToggle<CR>
+
+" highlight on yank
+augroup highlight_yank
+autocmd!
+au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
+augroup END
