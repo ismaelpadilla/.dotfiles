@@ -11,7 +11,7 @@ require('comment_helper').setup({
     post_hook = nil
 })
 
-vim.api.nvim_set_keymap('n', '<leader>cl', '<cmd> lua require("comment_helper").CommentLine()<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>cl', '<cmd> lua require("comment_helper").comment_line()<CR>', {})
 
 local ch = require("comment_helper")
 local ch_lua = require("comment_helper_lua")
