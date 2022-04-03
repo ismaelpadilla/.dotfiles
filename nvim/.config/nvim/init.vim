@@ -123,6 +123,10 @@ Plug 'https://github.com/ismaelpadilla/comment-helper.nvim'
 Plug '~/code/comment-helper-lua.nvim/'
 
 Plug 'ThePrimeagen/harpoon'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+Plug 'j-hui/fidget.nvim'
 call plug#end()
 
 "colorscheme gruvbox
