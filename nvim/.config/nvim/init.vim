@@ -119,6 +119,8 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'lewis6991/gitsigns.nvim'
 
+" Plug 'github/copilot.vim'
+
 Plug 'https://github.com/ismaelpadilla/comment-helper.nvim'
 Plug '~/code/comment-helper-lua.nvim/'
 
