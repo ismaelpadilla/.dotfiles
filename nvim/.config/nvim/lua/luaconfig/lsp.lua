@@ -213,12 +213,22 @@ require("lspconfig").gopls.setup({
     },
 })
 
+-- local languageServerPath = vim.fn.stdpath("config").."/languageserver"
+-- requires global installation of typescript @angular/language-service @angular/language-server
+local languageServerPath = "/home/ipadilla/.nvm/versions/node/v17.9.0/lib/"
+-- local languageServerPath = vim.fn.getcwd() .. "/node-modules"
+-- local path = os.execute
+local cmd = {"ngserver", "--stdio", "--tsProbeLocations", languageServerPath , "--ngProbeLocations", languageServerPath, "--viewEngine"}
 require 'lspconfig'.angularls.setup {
+    cmd = cmd,
     on_attach = on_attach,
     flags = {
         debounce_text_changes = 150,
     },
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_new_config = function(new_config, new_root_dir)
+        new_config.cmd = cmd
+    end,
 }
 
 -- nvim-cmp highlight groups
