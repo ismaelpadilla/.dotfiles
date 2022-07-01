@@ -129,6 +129,8 @@ Plug 'ThePrimeagen/harpoon'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 Plug 'j-hui/fidget.nvim'
+
+Plug 'lukas-reineke/indent-blankline.nvim' " add indent line
 call plug#end()
 
 "colorscheme gruvbox
@@ -245,3 +247,9 @@ augroup highlight_yank
 autocmd!
 au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
 augroup END
+
+set list
+set listchars+=eol:↴
+" lua alternative:
+" vim.opt.list = true
+" vim.opt.listchars:append("eol:↴")
