@@ -84,6 +84,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/nvim-treesitter-angular'
 
 Plug 'tpope/vim-fugitive'
 
@@ -129,6 +130,8 @@ Plug 'ThePrimeagen/harpoon'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 Plug 'j-hui/fidget.nvim'
+
+Plug 'mfussenegger/nvim-jdtls'
 
 Plug 'lukas-reineke/indent-blankline.nvim' " add indent line
 call plug#end()
