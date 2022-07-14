@@ -134,6 +134,11 @@ Plug 'j-hui/fidget.nvim'
 Plug 'mfussenegger/nvim-jdtls'
 
 Plug 'lukas-reineke/indent-blankline.nvim' " add indent line
+
+Plug 'mfussenegger/nvim-dap'
+Plug 'leoluz/nvim-dap-go'
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'rcarriga/nvim-dap-ui'
 call plug#end()
 
 "colorscheme gruvbox
