@@ -98,8 +98,8 @@ fi
 
 # up arrow and down arrow use local history
 # https://superuser.com/questions/446594/separate-up-arrow-lookback-for-local-and-global-zsh-history
-bindkey "${key[Up]}" up-line-or-local-history
-bindkey "${key[Down]}" down-line-or-local-history
+bindkey "$terminfo[kcuu1]" up-line-or-local-history
+bindkey "$terminfo[kcud1]" down-line-or-local-history
 
 up-line-or-local-history() {
     zle set-local-history 1
