@@ -3,6 +3,8 @@ exec_always --no-startup-id dunst #-config ~/.config/dunst/dunstrc
 
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 # so pamac asks for authentication
 
+exec --no-startup-id i3-battery-popup -L 20 -n
+
 # keyboard: localectl list-x11-keymap-variants es
 exec_always --no-startup-id "setxkbmap -model pc104 -layout 'us,latam' -option -option grp:alt_shift_toggle"
 
