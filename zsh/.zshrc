@@ -114,6 +114,12 @@ down-line-or-local-history() {
 }
 zle -N down-line-or-local-history
 
+# autocomplete hidden files
+setopt globdots
+#
+# don't autocomplete . and ..
+zstyle ':completion:*' special-dirs false
+
 # export SUDO_EDITOR=nvimg
 
 # Compilation flags
