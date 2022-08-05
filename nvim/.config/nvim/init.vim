@@ -264,3 +264,5 @@ set listchars+=eol:↴
 " lua alternative:
 " vim.opt.list = true
 " vim.opt.listchars:append("eol:↴")
+
+nnoremap <leader>w <cmd>write<cr>
