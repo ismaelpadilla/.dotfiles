@@ -1,4 +1,12 @@
-P('init jdtls')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_cmp_ok then
+    return
+end
+capabilities.textDocument.completion.completionItem.snippetSupport = false
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+
 local home = os.getenv('HOME')
 local root_markers = { 'gradlew', 'pom.xml' }
 local root_dir = require('jdtls.setup').find_root(root_markers)
@@ -10,6 +18,9 @@ local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t") -- https://github.co
 
 local workspace_dir = home .. '/.jdt-workspace/' .. project_name
 -- local workspace_dir = '~/RepoGit/' .. 'analytics-services'
+
+local extendedClientCapabilities = require('jdtls').extendedClientCapabilities
+extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -62,9 +73,28 @@ local config = {
     -- for a list of options
     settings = {
         java = {
-            signatureHelp = { enabled = true };
-        }
+            maven = {
+                downloadSources = true,
+            },
+            implementationsCodeLens = {
+                enabled = true,
+            }, referencesCodeLens = {
+                enabled = true,
+            },
+            references = {
+                includeDecompiledSources = true,
+            },
+            inlayHints = {
+                parameterNames = {
+                    enabled = "all", -- literals, all, none
+                },
+            },
+        },
+        signatureHelp = { enabled = true };
+        contentProvider = { preferred = "fernflower" },
+        extendedClientCapabilities = extendedClientCapabilities,
     },
+    capabilities = capabilities,
 
     -- Language server `initializationOptions`
     -- You need to extend the `bundles` with paths to jar files
