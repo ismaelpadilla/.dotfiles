@@ -140,6 +140,7 @@ alias gs="git status"
 alias vim=nvim
 alias v=vim
 alias ll='ls -alF'
+alias cal='ncal -b'
 
 
 export JAVA_HOME=/usr/java/jdk1.8.0_241
