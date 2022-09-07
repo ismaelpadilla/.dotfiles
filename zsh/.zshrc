@@ -143,7 +143,6 @@ alias ll='ls -alF'
 alias cal='ncal -b'
 
 
-export JAVA_HOME=/usr/java/jdk1.8.0_241
 
 # node version manager
 export NVM_DIR="$HOME/.nvm"
