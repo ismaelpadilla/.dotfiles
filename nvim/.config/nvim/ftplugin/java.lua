@@ -29,7 +29,8 @@ local config = {
     cmd = {
 
         -- 💀
-        '/usr/lib/jvm/java-11-openjdk-amd64/bin/java', -- or '/path/to/java11_or_newer/bin/java'
+        '/Users/ipadilla/.sdkman/candidates/java/18.0.2-amzn/bin/java', -- or '/path/to/java11_or_newer/bin/java'
+        -- '/Users/ipadilla/.sdkman/candidates/java/11.0.16.1-ms/bin/java', -- or '/path/to/java11_or_newer/bin/java'
         -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -44,7 +45,7 @@ local config = {
 
         -- 💀
         -- '-jar', '/path/to/jdtls_install_location/plugins/org.eclipse.equinox.launcher_VERSION_NUMBER.jar',
-        '-jar', home .. '/jdt/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+        '-jar', home .. '/jdt/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
         -- Must point to the                                                     Change this to
         -- eclipse.jdt.ls installation                                           the actual version
@@ -52,7 +53,7 @@ local config = {
 
         -- 💀
         -- '-configuration', '/path/to/jdtls_install_location/config_SYSTEM',
-        '-configuration', home .. '/jdt/config_linux',
+        '-configuration', home .. '/jdt/jdt-language-server-1.9.0-202203031534/config_mac',
         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
         -- Must point to the                      Change to one of `linux`, `win` or `mac`
         -- eclipse.jdt.ls installation            Depending on your system.
