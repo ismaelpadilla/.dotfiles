@@ -141,6 +141,8 @@ Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'rcarriga/nvim-dap-ui'
 
 Plug 'ggandor/leap.nvim'
+
+Plug 'mfussenegger/nvim-lint'
 call plug#end()
 
 "colorscheme gruvbox
