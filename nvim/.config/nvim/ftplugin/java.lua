@@ -8,6 +8,8 @@ capabilities.textDocument.completion.completionItem.snippetSupport = false
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 local home = os.getenv('HOME')
+local java_debug_folder = home .. "/jdt/java-debug"
+local vscode_java_test_folder = home .. "/jdt/vscode-java-test"
 local root_markers = { 'gradlew', 'pom.xml' }
 local root_dir = require('jdtls.setup').find_root(root_markers)
 
@@ -22,6 +24,11 @@ local workspace_dir = home .. '/.jdt-workspace/' .. project_name
 local extendedClientCapabilities = require('jdtls').extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
+local bundles = {
+    vim.fn.glob(java_debug_folder .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"),
+};
+vim.list_extend(bundles, vim.split(vim.fn.glob(vscode_java_test_folder .. "/server/*.jar"), "\n"))
+
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
     -- The command that starts the language server
@@ -29,7 +36,7 @@ local config = {
     cmd = {
 
         -- 💀
-        '/Users/ipadilla/.sdkman/candidates/java/18.0.2-amzn/bin/java', -- or '/path/to/java11_or_newer/bin/java'
+        '/Users/ipadilla/.sdkman/candidates/java/17.0.4-amzn/bin/java', -- or '/path/to/java11_or_newer/bin/java'
         -- '/Users/ipadilla/.sdkman/candidates/java/11.0.16.1-ms/bin/java', -- or '/path/to/java11_or_newer/bin/java'
         -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
@@ -44,8 +51,10 @@ local config = {
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
         -- 💀
-        -- '-jar', '/path/to/jdtls_install_location/plugins/org.eclipse.equinox.launcher_VERSION_NUMBER.jar',
-        '-jar', home .. '/jdt/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+        '-jar', vim.fn.glob(home .. '/jdt/jdt-language-server-1.15.*/plugins/org.eclipse.equinox.launcher_*.jar'),
+        -- '-jar', vim.fn.glob(home .. '/jdt/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar'),
+        -- home ..
+        --     '/jdt/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
         -- Must point to the                                                     Change this to
         -- eclipse.jdt.ls installation                                           the actual version
@@ -53,7 +62,7 @@ local config = {
 
         -- 💀
         -- '-configuration', '/path/to/jdtls_install_location/config_SYSTEM',
-        '-configuration', home .. '/jdt/jdt-language-server-1.9.0-202203031534/config_mac',
+        '-configuration', vim.fn.glob(home .. '/jdt/jdt-language-server-1.15.*/config_mac'),
         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
         -- Must point to the                      Change to one of `linux`, `win` or `mac`
         -- eclipse.jdt.ls installation            Depending on your system.
@@ -74,6 +83,23 @@ local config = {
     -- for a list of options
     settings = {
         java = {
+            configuration = {
+                runtimes = {
+                    {
+                        name = "JavaSE-1.8",
+                        path = home .. "/.sdkman/candidates/java/8.0.342-amzn/",
+                        default = true,
+                    },
+                    {
+                        name = "JavaSE-11",
+                        path = home .. "/.sdkman/candidates/java/11.0.16.1-ms"
+                    },
+                    {
+                        name = "JavaSE-17",
+                        path = home .. "/.sdkman/candidates/java/17.0.4-amzn/",
+                    },
+                },
+            },
             maven = {
                 downloadSources = true,
             },
@@ -90,10 +116,31 @@ local config = {
                     enabled = "all", -- literals, all, none
                 },
             },
+            imports = { -- <- this
+                gradle = {
+                    enabled = true,
+                    wrapper = {
+                        enabled = true,
+                        checksums = {
+                            -- {
+                            --     sha256 = 'ebb6eaf164c425ffe76f9744a324feb774e750d821ed212d4c41f452adea248e',
+                            --     allowed = true
+                            -- },
+                            -- {
+                            --     sha256 = '70239e6ca1f0d5e3b2808ef6d82390cf9ad58d3a3a0d271677a51d1b89475857',
+                            --     allowed = true
+                            -- },
+                            -- {
+                            --     sha256 = '91a239400bb638f36a1795d8fdf7939d532cdc7d794d1119b7261aac158b1e60',
+                            --     allowed = true
+                            -- },
+                        },
+                    }
+                }
+            }
         },
         signatureHelp = { enabled = true };
         contentProvider = { preferred = "fernflower" },
-        extendedClientCapabilities = extendedClientCapabilities,
     },
     capabilities = capabilities,
 
@@ -105,9 +152,48 @@ local config = {
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
-        bundles = {}
+        bundles = bundles,
+        extendedClientCapabilities = extendedClientCapabilities,
+        -- https://github.com/mfussenegger/nvim-jdtls/discussions/249
+        settings = {
+            java = {
+                imports = {
+                    gradle = {
+                        enabled = true,
+                        wrapper = {
+                            enabled = true,
+                            checksums = {
+                                -- {
+                                --     sha256 = 'ebb6eaf164c425ffe76f9744a324feb774e750d821ed212d4c41f452adea248e',
+                                --     allowed = true
+                                -- },
+                                -- {
+                                --     sha256 = '70239e6ca1f0d5e3b2808ef6d82390cf9ad58d3a3a0d271677a51d1b89475857',
+                                --     allowed = true
+                                -- },
+                                -- {
+                                --     sha256 = '91a239400bb638f36a1795d8fdf7939d532cdc7d794d1119b7261aac158b1e60',
+                                --     allowed = true
+                                -- },
+                            },
+                        }
+                    }
+                }
+            },
+        }
     },
+    on_attach = function(client, bufnr)
+        -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
+        -- you make during a debug session immediately.
+        -- Remove the option if you do not want that.
+        -- require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+        require('jdtls').setup_dap()
+        require('jdtls').setup.add_commands()
+        require("jdtls.dap").setup_dap_main_class_configs()
+    end,
 }
+-- P(table.concat(config.cmd, " "))
+
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
@@ -147,3 +233,6 @@ buf_set_keymap('n', '<space>fc', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 -- jdtls-specific
 buf_set_keymap('v', '<space>lem', '<Esc><Cmd>lua require("jdtls").extract_method(true)<CR>', opts)
+
+buf_set_keymap('n', '<space>cs', '<cmd>lua require("lint").try_lint()<CR>', opts)
+
