@@ -3,6 +3,8 @@ local lspkind = require('lspkind')
 -- Setup nvim-cmp. https://github.com/hrsh7th/nvim-cmp
 local cmp = require 'cmp'
 
+local home = os.getenv('HOME')
+
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -160,7 +162,7 @@ require("rust-tools").setup({
 --
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 local USER = vim.fn.expand('$USER')
-local sumneko_root_path = "/home/" .. USER .. "/lualsp/lua-language-server/"
+local sumneko_root_path = home .. "/lualsp/lua-language-server/"
 local sumneko_binary = sumneko_root_path .. "bin/lua-language-server"
 
 local runtime_path = vim.split(package.path, ';')
@@ -215,10 +217,11 @@ require("lspconfig").gopls.setup({
 
 -- local languageServerPath = vim.fn.stdpath("config").."/languageserver"
 -- requires global installation of typescript @angular/language-service @angular/language-server
-local languageServerPath = "/home/ipadilla/.nvm/versions/node/v17.9.0/lib/"
+local languageServerPath = home .. "/.nvm/versions/node/v17.9.0/lib/"
 -- local languageServerPath = vim.fn.getcwd() .. "/node-modules"
 -- local path = os.execute
-local cmd = {"ngserver", "--stdio", "--tsProbeLocations", languageServerPath , "--ngProbeLocations", languageServerPath, "--viewEngine"}
+local cmd = { "ngserver", "--stdio", "--tsProbeLocations", languageServerPath, "--ngProbeLocations", languageServerPath,
+    "--viewEngine" }
 require 'lspconfig'.angularls.setup {
     cmd = cmd,
     on_attach = on_attach,
@@ -231,18 +234,18 @@ require 'lspconfig'.angularls.setup {
     end,
 }
 
-nvim_lsp.efm.setup {               
-    on_attach = on_attach,    
+nvim_lsp.efm.setup {
+    on_attach = on_attach,
     flags = {
-      debounce_text_changes = 150,
+        debounce_text_changes = 150,
     },
-    init_options = {documentFormatting = true},
-    filetypes = {"python"},
+    init_options = { documentFormatting = true },
+    filetypes = { "python" },
     settings = {
-        rootMarkers = {".git/"},
+        rootMarkers = { ".git/" },
         languages = {
             python = {
-                {formatCommand = "black --quiet -", formatStdin = true}
+                { formatCommand = "black --quiet -", formatStdin = true }
             }
         }
     }
