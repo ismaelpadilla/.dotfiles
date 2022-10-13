@@ -6,8 +6,8 @@ env:
 
 font:
   normal: 
-    family: Fira Code
-  size: 9
+    family: FiraCode NF
+  size: 14
 
 # # Colors (Dracula)
 # colors:
