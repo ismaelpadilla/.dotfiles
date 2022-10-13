@@ -14,9 +14,9 @@ require('comment_helper').setup({
 vim.api.nvim_set_keymap('n', '<leader>cl', '<cmd> lua require("comment_helper").comment_line()<CR>', {})
 
 local ch = require("comment_helper")
-local ch_lua = require("comment_helper_lua")
+-- local ch_lua = require("comment_helper_lua")
 
-ch.set_ignored_types("lua", {"chunk"})
-ch.add("lua", "function_declaration", ch_lua.function_declaration)
-ch.add("lua", "variable_declaration", ch_lua.variable_declaration)
-ch.add("lua", "assignment_statement", ch_lua.assignment_statement)
+-- ch.set_ignored_types("lua", {"chunk"})
+-- ch.add("lua", "function_declaration", ch_lua.function_declaration)
+-- ch.add("lua", "variable_declaration", ch_lua.variable_declaration)
+-- ch.add("lua", "assignment_statement", ch_lua.assignment_statement)
