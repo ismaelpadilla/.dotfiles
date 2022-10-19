@@ -237,3 +237,6 @@ buf_set_keymap('v', '<space>lem', '<Esc><Cmd>lua require("jdtls").extract_method
 
 buf_set_keymap('n', '<space>cs', '<cmd>lua require("lint").try_lint()<CR>', opts)
 
+buf_set_keymap('n', '<space>df', '<cmd>lua require"jdtls".test_class()<CR>', opts)
+buf_set_keymap('n', '<space>dn', '<cmd>lua require"jdtls".test_nearest_method()<CR>', opts)
+
