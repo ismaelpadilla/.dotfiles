@@ -5,7 +5,8 @@ if not status_cmp_ok then
     return
 end
 capabilities.textDocument.completion.completionItem.snippetSupport = false
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+-- capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities = cmp_nvim_lsp.default_capabilities()
 
 local home = os.getenv('HOME')
 local java_debug_folder = home .. "/jdt/java-debug"
