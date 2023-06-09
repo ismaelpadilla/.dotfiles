@@ -37,7 +37,7 @@ local config = {
     cmd = {
 
         -- 💀
-        '/Users/ipadilla/.sdkman/candidates/java/17.0.4-amzn/bin/java', -- or '/path/to/java11_or_newer/bin/java'
+        '/Users/ipadilla/.sdkman/candidates/java/17.0.5-amzn/bin/java', -- or '/path/to/java11_or_newer/bin/java'
         -- '/Users/ipadilla/.sdkman/candidates/java/11.0.16.1-ms/bin/java', -- or '/path/to/java11_or_newer/bin/java'
         -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
@@ -53,9 +53,10 @@ local config = {
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
         -- 💀
-        '-jar', vim.fn.glob(home .. '/jdt/jdt-language-server-1.15.*/plugins/org.eclipse.equinox.launcher_*.jar'),
-        -- '-jar', vim.fn.glob(home .. '/jdt/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar'),
-        -- home ..
+        '-jar', vim.fn.glob(home .. '/jdt/jdt-language-server-1.24.*/plugins/org.eclipse.equinox.launcher_*.jar'),
+        -- '-jar', vim.fn.glob(home .. '/jdt/jdt-language-server-1.15.*/plugins/org.eclipse.equinox.launcher_*.jar'),
+        -- -- '-jar', vim.fn.glob(home .. '/jdt/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar'),
+        -- -- home ..
         --     '/jdt/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
         -- Must point to the                                                     Change this to
@@ -64,7 +65,7 @@ local config = {
 
         -- 💀
         -- '-configuration', '/path/to/jdtls_install_location/config_SYSTEM',
-        '-configuration', vim.fn.glob(home .. '/jdt/jdt-language-server-1.15.*/config_mac'),
+        '-configuration', vim.fn.glob(home .. '/jdt/jdt-language-server-1.24.*/config_mac'),
         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
         -- Must point to the                      Change to one of `linux`, `win` or `mac`
         -- eclipse.jdt.ls installation            Depending on your system.
@@ -87,18 +88,18 @@ local config = {
         java = {
             configuration = {
                 runtimes = {
-                    {
-                        name = "JavaSE-1.8",
-                        path = home .. "/.sdkman/candidates/java/8.0.342-amzn/",
-                        default = true,
-                    },
+                    -- {
+                    --     name = "JavaSE-1.8",
+                    --     path = home .. "/.sdkman/candidates/java/8.0.342-amzn/",
+                    --     default = true,
+                    -- },
                     {
                         name = "JavaSE-11",
                         path = home .. "/.sdkman/candidates/java/11.0.16.1-ms"
                     },
                     {
                         name = "JavaSE-17",
-                        path = home .. "/.sdkman/candidates/java/17.0.4-amzn/",
+                        path = home .. "/.sdkman/candidates/java/17.0.5-amzn/",
                     },
                 },
             },
@@ -231,7 +232,7 @@ buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 buf_set_keymap('n', '<space>ql', '<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>', opts)
 buf_set_keymap('n', '<space>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-buf_set_keymap('n', '<space>fc', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+buf_set_keymap('n', '<space>fc', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
 -- jdtls-specific
 buf_set_keymap('v', '<space>lem', '<Esc><Cmd>lua require("jdtls").extract_method(true)<CR>', opts)
