@@ -5,11 +5,10 @@
 -- vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
 -- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
 
-require("indent_blankline").setup {
+require("ibl").setup {
     -- for example, context is off by default, use this to turn it on
-    char = '┊',
-    show_current_context = true,
-    show_first_indent_level = true,
+    indent = {char = '┊'},
+    -- show_first_indent_level = true,
     -- show_trailing_blankline_indent = false,
     -- show_current_context_start = true,
     --     char_highlight_list = {
