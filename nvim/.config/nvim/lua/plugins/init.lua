@@ -1,0 +1,94 @@
+return {
+    "airblade/vim-rooter",
+    "tpope/vim-surround",
+    "tpope/vim-fugitive",
+    "nvim-lua/popup.nvim",
+    "mfussenegger/nvim-jdtls"
+}
+
+--call plug#begin('~/.vim/plugged')
+--
+--Plug 'gruvbox-community/gruvbox'
+--
+--" vim surround
+--Plug 'tpope/vim-surround'
+--
+--" emmet
+--Plug 'mattn/emmet-vim'
+--
+--" telescope
+--Plug 'nvim-lua/plenary.nvim'
+--Plug 'nvim-telescope/telescope.nvim'
+--Plug 'nvim-telescope/telescope-fzy-native.nvim'
+--Plug 'nvim-telescope/telescope-ui-select.nvim'
+--
+--" rfc plugin (:RFC [vim regexp])
+--Plug 'mhinz/vim-rfc'
+--
+--Plug 'airblade/vim-rooter'
+--
+--Plug 'kyazdani42/nvim-web-devicons'
+--
+--Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+--Plug 'nvim-treesitter/playground'
+--Plug 'nvim-treesitter/nvim-treesitter-angular'
+--
+--Plug 'tpope/vim-fugitive'
+--
+--Plug 'neovim/nvim-lspconfig'
+--Plug 'hrsh7th/cmp-nvim-lsp'
+--Plug 'hrsh7th/cmp-buffer'
+--Plug 'hrsh7th/cmp-path'
+--Plug 'hrsh7th/cmp-cmdline'
+--Plug 'hrsh7th/cmp-nvim-lua'
+--Plug 'hrsh7th/nvim-cmp'
+--Plug 'onsails/lspkind-nvim'
+--
+--Plug 'L3MON4D3/LuaSnip'
+--Plug 'saadparwaiz1/cmp_luasnip'
+--" Plug 'rafamadriz/friendly-snippets' --TODO look into this
+--
+--Plug 'tjdevries/colorbuddy.vim'
+--Plug 'Th3Whit3Wolf/onebuddy'
+--
+--"Plug 'itchyny/lightline.vim'
+--Plug 'nvim-lualine/lualine.nvim'
+--" If you want to have icons in your statusline choose one of these
+--Plug 'kyazdani42/nvim-web-devicons'
+--
+--Plug 'simrat39/rust-tools.nvim'
+--Plug 'nvim-lua/popup.nvim'
+--
+--Plug 'numToStr/Comment.nvim'
+--
+--Plug 'weilbith/nvim-code-action-menu'
+--
+--Plug 'kyazdani42/nvim-tree.lua'
+--
+--Plug 'lewis6991/gitsigns.nvim'
+--
+--" Plug 'github/copilot.vim'
+--
+--Plug 'https://github.com/ismaelpadilla/comment-helper.nvim'
+--Plug '~/code/comment-helper-lua.nvim/'
+--
+--Plug 'ThePrimeagen/harpoon'
+--
+--Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+--
+--Plug 'j-hui/fidget.nvim'
+--
+--Plug 'mfussenegger/nvim-jdtls'
+--
+--Plug 'lukas-reineke/indent-blankline.nvim' " add indent line
+--
+--Plug 'mfussenegger/nvim-dap'
+--Plug 'leoluz/nvim-dap-go'
+--Plug 'theHamsta/nvim-dap-virtual-text'
+--Plug 'rcarriga/nvim-dap-ui'
+--
+--Plug 'ggandor/leap.nvim'
+--
+--Plug 'mfussenegger/nvim-lint'
+--call plug#end()
+
