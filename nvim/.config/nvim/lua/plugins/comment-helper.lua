@@ -1,6 +1,6 @@
 return {
     "ismaelpadilla/comment-helper.nvim",
-    dependencies = { 
+    dependencies = {
         "L3MON4D3/LuaSnip",
         "ismaelpadilla/comment-helper-lua.nvim"
     },
@@ -23,7 +23,7 @@ return {
         local ch = require("comment_helper")
         local ch_lua = require("comment_helper_lua")
 
-        ch.set_ignored_types("lua", {"chunk"})
+        ch.set_ignored_types("lua", { "chunk" })
         ch.add("lua", "function_declaration", ch_lua.function_declaration)
         ch.add("lua", "variable_declaration", ch_lua.variable_declaration)
         ch.add("lua", "assignment_statement", ch_lua.assignment_statement)

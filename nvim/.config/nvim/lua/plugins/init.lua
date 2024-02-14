@@ -91,4 +91,3 @@ return {
 --
 --Plug 'mfussenegger/nvim-lint'
 --call plug#end()
-
