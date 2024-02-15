@@ -13,19 +13,24 @@ return {
         'simrat39/rust-tools.nvim',
     },
     config = function()
-
         local lspkind = require('lspkind')
 
         -- Setup nvim-cmp. https://github.com/hrsh7th/nvim-cmp
         local cmp = require 'cmp'
 
         local home = os.getenv('HOME')
+        local luasnip = require("luasnip")
+
+        local has_words_before = function()
+            unpack = unpack or table.unpack
+            local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+            return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+        end
 
         cmp.setup({
             snippet = {
-                -- REQUIRED - you must specify a snippet engine
                 expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                    luasnip.lsp_expand(args.body) -- For `luasnip` users.
                 end,
             },
             mapping = cmp.mapping.preset.insert({
@@ -37,7 +42,15 @@ return {
                     i = cmp.mapping.abort(),
                     c = cmp.mapping.close(),
                 }),
-                ['<C-k>'] = cmp.mapping.confirm({ select = true }),
+                ['<C-k>'] = cmp.mapping(function(fallback)
+                    if luasnip.expand_or_jumpable() then
+                        luasnip.expand_or_jump()
+                    elseif has_words_before() then
+                        cmp.confirm({ select = true })
+                    else
+                        fallback()
+                    end
+                end),
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
@@ -139,7 +152,6 @@ return {
         local servers = { 'pyright', 'tsserver', 'html', 'bashls' }
         for _, lsp in ipairs(servers) do
             nvim_lsp[lsp].setup {
-                -- on_attach = on_attach,
                 flags = {
                     debounce_text_changes = 150,
                 },
@@ -150,7 +162,6 @@ return {
         -- rust tools, the options inside 'server' are the lsp options
         require("rust-tools").setup({
             server = {
-                -- on_attach = on_attach,
                 flags = {
                     debounce_text_changes = 150,
                 },
@@ -183,7 +194,6 @@ return {
         table.insert(runtime_path, "lua/?/init.lua")
 
         require('lspconfig').lua_ls.setup({
-            -- on_attach = on_attach,
             cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua", "--preview" };
             -- capabilities = capabilities,
             settings = {
@@ -212,7 +222,6 @@ return {
         })
 
         require("lspconfig").gopls.setup({
-            -- on_attach = on_attach,
             cmd = { "gopls", "serve" },
             flags = {
                 debounce_text_changes = 150,
@@ -238,7 +247,6 @@ return {
             "--viewEngine" }
         require 'lspconfig'.angularls.setup {
             cmd = cmd,
-            -- on_attach = on_attach,
             flags = {
                 debounce_text_changes = 150,
             },
@@ -249,7 +257,6 @@ return {
         }
 
         nvim_lsp.efm.setup {
-            -- on_attach = on_attach,
             flags = {
                 debounce_text_changes = 150,
             },
