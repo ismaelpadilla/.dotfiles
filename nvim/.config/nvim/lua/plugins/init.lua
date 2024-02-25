@@ -3,7 +3,8 @@ return {
     "tpope/vim-surround",
     "tpope/vim-fugitive",
     "nvim-lua/popup.nvim",
-    "mfussenegger/nvim-jdtls"
+    "mfussenegger/nvim-jdtls",
+    "github/copilot.vim"
 }
 
 --call plug#begin('~/.vim/plugged')
