@@ -10,7 +10,7 @@ return {
         'onsails/lspkind-nvim',
         'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
-        'simrat39/rust-tools.nvim',
+        -- 'simrat39/rust-tools.nvim',
     },
     config = function()
         local lspkind = require('lspkind')
@@ -160,14 +160,14 @@ return {
         end
 
         -- rust tools, the options inside 'server' are the lsp options
-        require("rust-tools").setup({
-            server = {
-                flags = {
-                    debounce_text_changes = 150,
-                },
-                capabilities = capabilities
-            }
-        })
+        -- require("rustaceanvim").setup({
+        --     server = {
+        --         flags = {
+        --             debounce_text_changes = 150,
+        --         },
+        --         capabilities = capabilities
+        --     }
+        -- })
 
 
         --require'lspconfig'.sumneko_lua.setup{}
