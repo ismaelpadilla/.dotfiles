@@ -84,6 +84,8 @@ bindcode Ctrl+$mod+23 exec "rofi -show-icons -m -4 -modi window -show"
 
 bindsym $mod+Control+Return exec "thunar"
 
+bindsym $mod+p exec "~/.local/bin/swap-monitors-rofi"
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
