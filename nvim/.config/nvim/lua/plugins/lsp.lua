@@ -149,7 +149,7 @@ return {
             end
         })
 
-        local servers = { 'pyright', 'tsserver', 'html', 'bashls' }
+        local servers = { 'pyright', 'ts_ls', 'html', 'bashls' }
         for _, lsp in ipairs(servers) do
             nvim_lsp[lsp].setup {
                 flags = {
@@ -273,14 +273,14 @@ return {
         }
 
         -- nvim-cmp highlight groups
-        local Group = require("colorbuddy.group").Group
-        local g = require("colorbuddy.group").groups
-        local c = require("colorbuddy.color").colors
-        -- local s = require("colorbuddy.style").styles
-
-        Group.new("CmpItemAbbrDeprecated", g.Error)
-        Group.new("CmpItemKind", c.red)
-        -- Group.new("CmpItemKind", g.Special)
-        Group.new("CmpItemMenu", g.NonText)
+        -- local Group = require("colorbuddy.group").Group
+        -- local g = require("colorbuddy.group").groups
+        -- local c = require("colorbuddy.color").colors
+        -- -- local s = require("colorbuddy.style").styles
+        --
+        -- Group.new("CmpItemAbbrDeprecated", g.Error)
+        -- Group.new("CmpItemKind", c.red)
+        -- -- Group.new("CmpItemKind", g.Special)
+        -- Group.new("CmpItemMenu", g.NonText)
     end
 }
