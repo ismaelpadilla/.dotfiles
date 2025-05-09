@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Define available display modes
+modes=(
+"Single Display
+Duplicate Display
+Extend Display Left
+Extend Display Right
+External Display")
+
+selected_option=$(echo -e "$modes" | tofi --prompt-text "Select an option" --print-index=true)
+
+case $selected_option in
+    1) swaymsg 'output HDMI-A-1 enable; output eDP-1 disable';;
+    2) swaymsg 'output HDMI-A-1 resolution 1920x1080 position 0 0; output eDP-1 resolution 1920x1080 position 0 0';;
+    3) swaymsg 'output eDP-1 enable mode 1920x1080 position 1920 0; output HDMI-A-1 enable mode 1920x1080 position 0 0';;
+    4) swaymsg 'output eDP-1 enable mode 1920x1080 position 0 0; output HDMI-A-1 enable mode 1920x1080 position 1920 0';;
+    5) xrandr --output eDP-1 --off --output HDMI-1 --auto ;;
+    *) echo "Invalid option." ;;
+esac
