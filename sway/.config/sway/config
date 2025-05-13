@@ -1,3 +1,5 @@
+exec_always --no-startup-id ~/.config/waybar/launch.sh
+
 output HDMI-A-1 resolution 1920x1080 position 0 0
 exec_always --no-startup-id dunst #-config ~/.config/dunst/dunstrc
 exec --no-startup-id i3-battery-popup -L 20 -n
@@ -20,12 +22,14 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 # set $menu wmenu-run
-set $menu tofi-run | xargs swaymsg exec --
+# set $menu tofi-run | xargs swaymsg exec --
+set $menu rofi -show-icons -matching fuzzy -m -4 -show
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1921x1080.png fill
+output * bg ~/wallpapers/win10.jpg fill
 #
 # Example configuration:
 #
@@ -59,6 +63,11 @@ set $menu tofi-run | xargs swaymsg exec --
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+input * {
+    xkb_layout us,latam
+    xkb_options grp:alt_shift_toggle
+}
+
 
 ### Key bindings
 #
@@ -78,18 +87,18 @@ set $menu tofi-run | xargs swaymsg exec --
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindcode $mod+59 exec "tofi -show emoji -modi emoji"
+    bindcode $mod+59 exec "rofi -show emoji -modi emoji"
     # bindcode $mod+40 exec "tofi -show-icons -matching fuzzy -m -4 -show"
     # ctrl+$mod+d: no fuzzy matching
-    bindcode Ctrl+$mod+40 exec "tofi -show-icons -m -4 -show"
+    bindcode Ctrl+$mod+40 exec "rofi -show-icons -m -4 -show"
     # mod+tab: window switcher
-    bindcode $mod+23 exec "tofi -show-icons -matching fuzzy -m -4 -modi window -show"
+    bindcode $mod+23 exec "rofi -show-icons -matching fuzzy -m -4 -modi window -show"
     # ctrl+mod+tab: window switcher without fuzzy matching
-    bindcode Ctrl+$mod+23 exec "tofi -show-icons -m -4 -modi window -show"
+    bindcode Ctrl+$mod+23 exec "rofi -show-icons -m -4 -modi window -show"
 
     bindsym $mod+Control+Return exec "thunar"
 
-    bindsym $mod+p exec "~/.local/bin/swap-monitors-tofi"
+    bindsym $mod+p exec "~/.local/bin/swap-monitors-rofi"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -234,20 +243,21 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-    status_command i3blocks
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+# bar {
+#     position top
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+#     status_command i3blocks
+#
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
+#
 
 # Moving workspaces between screens 
 bindsym $mod+Shift+p move workspace to output right

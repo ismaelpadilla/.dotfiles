@@ -3,7 +3,7 @@
 ##!/usr/bin/sh
 
 DOTFILES=$HOME/.dotfiles
-STOW_FOLDERS="nvim,tmux,rofi,i3,alacritty,picom,polybar,networkmanager-dmenu,bin,zsh,sway"
+STOW_FOLDERS="nvim,tmux,rofi,i3,alacritty,picom,polybar,networkmanager-dmenu,bin,zsh,sway,waybar"
 echo $DOTFILES
 
 # I am using zsh instead of bash.  I was having some troubles using bash with
